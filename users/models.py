@@ -4,9 +4,9 @@ class User(models.Model):
     use_in_migrations = True
     email = models.CharField(primary_key=True, max_length=30)
     password = models.CharField(max_length=10)
-    username = models.TextField()
-    birth = models.TextField()
-    gender = models.TextField()
+    username = models.CharField()
+    birth = models.CharField()
+    gender = models.CharField()
 
     class Meta:
         db_table = "users"
