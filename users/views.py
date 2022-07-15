@@ -22,7 +22,7 @@ def users(request):
             if serializer.is_valid(raise_exception=True):  # raise된 에러를 가시적으로 클라이언트에 전달
                 # print(serializer)
                 # print('3. 들어온 내부값: ', serializer.data)
-                serializer.save()
+                serializer.save(commit=True)
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
             print('error: ', serializer.errors)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

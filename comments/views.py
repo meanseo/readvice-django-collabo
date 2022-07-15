@@ -4,6 +4,10 @@ from rest_framework.parsers import JSONParser
 from comments.models import Comment
 from comments.serializers import CommentSerializer
 from rest_framework.response import Response
+from users.models import User
+from books.models import Book
+from users.serializers import UserSerializer
+
 
 
 @api_view(["GET", "POST", "PUT", "DELETE"])
@@ -19,7 +23,7 @@ def comments(request):
         elif request.method == 'POST':
             print('2 POST 로 들어옴')
             serializer = CommentSerializer(data=request.data)
-            if serializer.is_valid():
+            if serializer.is_valid(raise_exception=True):
                 serializer.save()
                 print('3. 들어온 내부값: ', serializer)
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -37,3 +41,10 @@ def comments(request):
             return Response(status=status.HTTP_204_NO_CONTENT)
     except Comment.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
+
+@api_view(["GET"])
+@parser_classes([JSONParser])
+def query_test(request):
+    queryset = User.objects.raw('SELECT * FROM users LEFT JOIN comments ON users.email = comments.user_id UNION SELECT * FROM users RIGHT JOIN comments ON users.email = comments.user_id')
+    serializer = UserSerializer(queryset, many=True)
+    return Response(serializer.data)
