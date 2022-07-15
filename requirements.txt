@@ -43,3 +43,5 @@ pytorch==1.10.0
 torch
 mysqlclient
 djangorestframework
+djangorestframework-simplejwt
+django-cors-headers
