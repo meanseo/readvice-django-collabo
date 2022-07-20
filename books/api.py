@@ -1,6 +1,6 @@
 import json
 from icecream import ic
-import config
+import configs
 import urllib.request
 import pandas as pd
 
