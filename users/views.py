@@ -1,4 +1,5 @@
 from django.contrib.auth import login, authenticate
+from django.contrib.auth.password_validation import validate_password
 from django.http import JsonResponse, HttpResponse
 from rest_framework import status
 from rest_framework.decorators import api_view, parser_classes
