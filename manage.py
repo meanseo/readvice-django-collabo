@@ -19,5 +19,5 @@ def main():
 
 
 if __name__ == '__main__':
-    print('################## Server Started ##################')
+    print('############### Server Started #################')
     main()

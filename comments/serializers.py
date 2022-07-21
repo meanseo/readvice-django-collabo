@@ -2,14 +2,12 @@ from rest_framework import serializers
 
 from books.serializers import BookSerializer
 from users.serializers import UserSerializer
-from .models import Book as book
-from .models import User as user
-from .models import Comment as comment
+from .models import Comment
 
 
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
-        model = comment
+        model = Comment
         fields = '__all__'
 
 class MypageSerializer(serializers.Serializer):
@@ -30,4 +28,3 @@ class MypageSerializer(serializers.Serializer):
     price = serializers.CharField()
     category = serializers.CharField()
     book_img = serializers.CharField()
-

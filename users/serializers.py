@@ -1,23 +1,15 @@
 from django.contrib.auth import authenticate
 from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
 
 from .models import User
 from rest_framework_simplejwt.tokens import RefreshToken
-from django.contrib.auth.hashers import make_password
+
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('email', 'password', 'username', 'birth', 'gender')
-
-    def validate_password(self, value: str) -> str:
-        """
-        Hash value passed by user.
-
-        :param value: password of a user
-        :return: a hashed version of the password
-        """
-        return make_password(value)
 
     # def validate(self, data):
     #     email = data.get('email', None)
@@ -64,3 +56,10 @@ class LoginSerializer(serializers.ModelSerializer):
     #     # if user not in data:
     #     #     raise ValidationError('해당 아이디는 존재하지 않습니다.')
     #     # return data
+
+
+
+
+
+
+

@@ -1,7 +1,7 @@
-# url
 from django.urls import path, include
 from books import views
 
 urlpatterns = [
-    path(r'info', views.info)
+    path(r'search', views.search),
+    path(r'add_test', views.add_test)
 ]

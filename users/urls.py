@@ -1,8 +1,14 @@
+
 from django.urls import path, include
 from users import views
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+    TokenVerifyView,
+)
 
 urlpatterns = [
-    path('join', views.users),
-    path('login', views.login),
-    path('auth', include('rest_framework.urls', namespace='rest_framework'))
+    path(r'join', views.join),
+    path(r'login', views.login),
+    path(r'logout', views.logout),
 ]

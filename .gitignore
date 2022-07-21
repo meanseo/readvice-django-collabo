@@ -1,3 +1,1 @@
-docker-compose.yml
-admin/settings.py
-configs.py
+config.py
