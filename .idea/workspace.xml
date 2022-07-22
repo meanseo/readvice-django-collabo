@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="62c215eb-1a44-4df3-ba57-3520ef1ae262" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,11 +26,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="readvice_django" type="Python.DjangoServer" factoryName="Django server">
       <module name="readvice_django" />
@@ -68,7 +67,8 @@
       <workItem from="1658386483072" duration="4434000" />
       <workItem from="1658392481822" duration="35000" />
       <workItem from="1658392864925" duration="1672000" />
-      <workItem from="1658400171930" duration="1115000" />
+      <workItem from="1658400171930" duration="1928000" />
+      <workItem from="1658462457193" duration="2000" />
     </task>
     <servers />
   </component>

@@ -62,7 +62,7 @@ def login(request):
                     print(' ############################# ')
                     print(f' 출력된 토큰값: {token}')
                     print(' ############################# ')
-                    return Response(data=serializer.data)
+                    return Response(data=token)
                 else:
                     print('#############3')
                     return Response({"Message": "비밀번호 오류"})
