@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="62c215eb-1a44-4df3-ba57-3520ef1ae262" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +40,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="admin.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -69,6 +72,10 @@
       <workItem from="1658392864925" duration="1672000" />
       <workItem from="1658400171930" duration="1928000" />
       <workItem from="1658462457193" duration="2000" />
+      <workItem from="1658472763968" duration="1985000" />
+      <workItem from="1658475069459" duration="103000" />
+      <workItem from="1658475192519" duration="1114000" />
+      <workItem from="1658476597002" duration="669000" />
     </task>
     <servers />
   </component>

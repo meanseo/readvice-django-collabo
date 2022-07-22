@@ -2,7 +2,7 @@ from rest_framework import status
 from rest_framework.generics import get_object_or_404
 
 from .models import User
-from .serializers import UserSerializer, LoginSerializer
+from .serializers import UserSerializer, LoginSerializer, TokenSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, parser_classes
 from rest_framework.parsers import JSONParser
@@ -56,13 +56,16 @@ def login(request):
         try:
             if email == user.email:
                 if password == User.objects.get(email=email).password:
-                    serializer = LoginSerializer(user)
-                    token = Token.objects.create(user=user)
+                    # serializer = LoginSerializer(user)
+                    Token.objects.create(user=user)
+                    token = Token.objects.get(user=user)
+                    serializer = TokenSerializer(token)
+                    # serializer = TokenSerializer(token=token)
                     # token = Token.objects.create(user=settings.AUTH_USER_MODEL)
                     print(' ############################# ')
                     print(f' 출력된 토큰값: {token}')
                     print(' ############################# ')
-                    return Response(data=token)
+                    return Response(serializer.data)
                 else:
                     print('#############3')
                     return Response({"Message": "비밀번호 오류"})
