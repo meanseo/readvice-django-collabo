@@ -7,6 +7,7 @@ class Book(models.Model):
     book_title = models.TextField()
     category = models.TextField()
     book_img = models.TextField(null=True)
+    book_info = models.TextField(null=True)
 
     class Meta:
         db_table = "books"
