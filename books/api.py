@@ -3,8 +3,9 @@ from icecream import ic
 import configs
 import urllib.request
 import pandas as pd
+import requests
 
-def book_process():
+def book_process(request):
     # 정보나루 API 및 데이터 정제
     SUBSCRIPTION_KEY = configs.data_book_api_key
     # url2 = f'http://data4library.kr/api/libSrchByBook?authKey={config.data_book_api_key}&isbn=[ISBN]&region=[지역코드]'
@@ -31,12 +32,12 @@ def book_process():
     df.columns = ['book_title', 'author', 'isbn', 'category', 'book_img']
     df2json = df.to_json(orient="index")
     df2json = json.loads(df2json)
-    for i in range(0, len(df2json)):
+    for i in range(0, 10):
         book_api_data = list(df2json.values())[i]
-        print(book_api_data)
+    # ic(book_api_data)
     return book_api_data
 
-## ///////////////////////////len(////////////////////////////////////////
+## /////////////////////////////////////////////////////////////////////
 # with open('./data/isbn_books.json', 'r') as file:
 #     data = json.load(file)
 # # ic(data)

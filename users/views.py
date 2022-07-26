@@ -56,16 +56,18 @@ def login(request):
         try:
             if email == user.email:
                 if password == User.objects.get(email=email).password:
-                    # serializer = LoginSerializer(user)
                     Token.objects.create(user=user)
                     token = Token.objects.get(user=user)
-                    serializer = TokenSerializer(token)
+                    # data = User.objects.get(email=email).username
+                    loginSerializer = LoginSerializer(user)
+                    # serializer = TokenSerializer(token)
                     # serializer = TokenSerializer(token=token)
                     # token = Token.objects.create(user=settings.AUTH_USER_MODEL)
                     print(' ############################# ')
                     print(f' 출력된 토큰값: {token}')
                     print(' ############################# ')
-                    return Response(serializer.data)
+                    # print(f'{}')
+                    return Response(loginSerializer.data)
                 else:
                     print('#############3')
                     return Response({"Message": "비밀번호 오류"})

@@ -43,9 +43,10 @@ def add_test(request):
 @api_view(["GET"])
 @parser_classes([JSONParser])
 def book_api_data(request):
-    data = books.api.book_process()
-    serializer = ApiSerializer(data)
-    return Response(serializer.data)
+    data = books.api.book_process(request)
+    # serializer = ApiSerializer(data)
+    # return Response(serializer.data)
+    return data
 
 @api_view(["GET"])
 @parser_classes([JSONParser])
