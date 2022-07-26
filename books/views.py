@@ -4,9 +4,11 @@ from rest_framework.parsers import JSONParser
 from django.http import JsonResponse
 from rest_framework.response import Response
 
+import books.api
+import configs
 from books import api
 from books.models import Book
-from books.serializers import BookSerializer
+from books.serializers import BookSerializer, ApiSerializer
 
 import json
 from icecream import ic
@@ -41,34 +43,9 @@ def add_test(request):
 @api_view(["GET"])
 @parser_classes([JSONParser])
 def book_api_data(request):
-    # 정보나루 API 및 데이터 정제
-    SUBSCRIPTION_KEY = configs.data_book_api_key
-    # url2 = f'http://data4library.kr/api/libSrchByBook?authKey={config.data_book_api_key}&isbn=[ISBN]&region=[지역코드]'
-    url = f'http://data4library.kr/api/loanItemSrch?authKey={configs.data_book_api_key}&startDt=2022-07-10&endDt=2022-07-12&format=json'
-    # queryParams = '&' + urlencode({quote_plus('page'): '1', quote_plus('perPage'): '1824', quote_plus('returnType'): 'JSON'})
-
-    response = urllib.request.urlopen(url).read()
-    # json_str = response.read().decode("utf-8")
-    json_object = json.loads(response)
-    # body = json_object['response']
-    # json_object = body['docs']
-    # del json_object['doc']
-    # ic(json_object)
-
-    book_list = [json_object[i]['doc'] for i in range(0, len(json_object))]
-    # ic(book_list)
-
-    df = pd.DataFrame.from_records(book_list)
-    # ic(df)
-
-    df.drop(['addition_symbol', 'class_no', 'loan_count', 'no', 'publication_year', 'ranking', 'vol', 'publisher'],
-            axis=1, inplace=True)
-    df.columns = ['book_title', 'authors', 'isbn', 'category', 'book_img']
-    df2json = df.to_json(orient="index")
-    df2json = json.loads(df2json)
-    book_api_data = df2json.values()
-    ic(book_api_data)
-    return Response(book_api_data)
+    data = books.api.book_process()
+    serializer = ApiSerializer(data)
+    return Response(serializer.data)
 
 @api_view(["GET"])
 @parser_classes([JSONParser])
